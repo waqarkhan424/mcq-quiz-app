@@ -31,7 +31,7 @@ export default function McqsUploader() {
                 question: "What is 2 + 2?",
                 options: ["3", "4", "5", "6"],
                 correctAnswer: "4",
-                category: "geometry"
+                category: "discount"
 
             },
         ];

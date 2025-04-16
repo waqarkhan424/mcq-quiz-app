@@ -1,21 +1,22 @@
-//@ts-nocheck
 import prisma from "@/lib/db";
 
-// export default async function McqsList() {
-export default async function McqsList({ searchParams }: { searchParams: { category?: string } }) {
-    console.log("searchParams::::11111:::::::", searchParams)
+interface Props {
+    params: {
+        category: string;
+    };
+}
 
-    const category = searchParams.category;
-
+export default async function McqsByCategory({ params }: Props) {
+    const { category } = params;
 
     const questions = await prisma.question.findMany({
         where: { category },
     });
 
-    // const questions = await prisma.question.findMany();
 
     return (
-        <div className="space-y-4">
+        <div className="p-6 space-y-6">
+            <h1 className="text-2xl font-bold capitalize">{category.replace(/-/g, " ")} MCQs</h1>
             {questions.map((q, index) => (
                 <div key={q.id} className="border p-4 rounded space-y-2">
                     <h3 className="font-semibold">{index + 1}. {q.question}</h3>
@@ -30,12 +31,6 @@ export default async function McqsList({ searchParams }: { searchParams: { categ
                         })}
                     </ul>
 
-
-
-
-
-
-                    {/*  Add solution block here */}
                     {q.solution && (
                         <div className="bg-gray-100 mt-2 p-3 rounded text-sm whitespace-pre-line">
                             <strong>Step-by-step:</strong>
@@ -43,19 +38,8 @@ export default async function McqsList({ searchParams }: { searchParams: { categ
                             {q.solution}
                         </div>
                     )}
-
-
-
-
-
-
-
                 </div>
             ))}
-
-
-
-
         </div>
     );
 }

@@ -27,7 +27,7 @@ export default function CategoryLinks() {
                 <p
                     key={cat}
                     className="text-blue-600 underline cursor-pointer"
-                    onClick={() => router.push(`/?category=${cat}`)}
+                    onClick={() => router.push(`/mcqs/${cat}`)}
                 >
                     {index + 1}. {formatCategory(cat)}
                 </p>

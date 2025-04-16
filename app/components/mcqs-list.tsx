@@ -18,6 +18,27 @@ export default async function McqsList() {
                             );
                         })}
                     </ul>
+
+
+
+
+
+
+                    {/*  Add solution block here */}
+                    {q.solution && (
+                        <div className="bg-gray-100 mt-2 p-3 rounded text-sm whitespace-pre-line">
+                            <strong>Step-by-step:</strong>
+                            <br />
+                            {q.solution}
+                        </div>
+                    )}
+
+
+
+
+
+
+
                 </div>
             ))}
 

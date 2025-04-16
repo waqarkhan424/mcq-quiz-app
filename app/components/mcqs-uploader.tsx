@@ -10,6 +10,15 @@ export default function McqsUploader() {
     const handleUpload = async () => {
         setLoading(true);
         const mcqs = [
+
+            {
+                question: "60% of a number is added to 120, the result is the same number. Find the number?",
+                options: ["300", "200", "400", "500"],
+                correctAnswer: "300",
+                solution: `Let the number be x\n0.6x + 120 = x\nx - 0.6x = 120\n0.4x = 120\nx = 120 ÷ 0.4\nx = 300\nAnswer: 300`
+            },
+
+
             {
                 question: "What is the capital of France?",
                 options: ["Paris", "Berlin", "Madrid", "London"],

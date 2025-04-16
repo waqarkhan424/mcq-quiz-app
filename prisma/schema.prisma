@@ -16,6 +16,7 @@ model Question {
   options       String[]
   correctAnswer String
   solution      String?
+  category      String?
 }
 
 

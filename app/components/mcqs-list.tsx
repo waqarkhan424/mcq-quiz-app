@@ -1,7 +1,18 @@
+//@ts-nocheck
 import prisma from "@/lib/db";
 
-export default async function McqsList() {
-    const questions = await prisma.question.findMany();
+// export default async function McqsList() {
+export default async function McqsList({ searchParams }: { searchParams: { category?: string } }) {
+    console.log("searchParams::::11111:::::::", searchParams)
+
+    const category = searchParams.category;
+
+
+    const questions = await prisma.question.findMany({
+        where: { category },
+    });
+
+    // const questions = await prisma.question.findMany();
 
     return (
         <div className="space-y-4">

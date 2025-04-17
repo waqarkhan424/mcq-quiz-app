@@ -4,6 +4,20 @@ import { useState } from "react";
 import { delete_mcqs } from "@/app/actions/delete_mcqs";
 import { update_mcqs } from "@/app/actions/update_mcqs";
 
+
+import {
+    Card,
+    CardHeader,
+    CardTitle,
+    CardContent
+} from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { Button } from "@/components/ui/button";
+import { Label } from "@/components/ui/label";
+
+
+
 export default function EditDeleteMcqsList({ questions }: { questions: any[] }) {
     return (
         <>
@@ -40,77 +54,102 @@ function EditDeleteMCQ({ q, index }: any) {
     }
 
     return (
-        <div className="border p-4 rounded space-y-2">
-            <h3 className="font-semibold">{index + 1}.{" "}
-                {isEditing ? (
-                    <input value={question} onChange={(e) => setQuestion(e.target.value)} className="border p-1 w-full" />
-                ) : (
-                    question
-                )}
-            </h3>
 
-            <ul className="list-none pl-2 space-y-1">
-                {options.map((opt: string, idx: number) => (
-                    <li key={idx}>
-                        {String.fromCharCode(65 + idx)}.{" "}
-                        {isEditing ? (
-                            <input
-                                className="border p-1 w-full"
-                                value={opt}
-                                onChange={(e) => {
-                                    const newOptions = [...options];
-                                    newOptions[idx] = e.target.value;
-                                    setOptions(newOptions);
-                                }}
-                            />
-                        ) : (
-                            <span className={opt === correctAnswer ? "text-green-700 font-semibold" : ""}>
-                                {opt}
-                            </span>
-                        )}
-                    </li>
-                ))}
-            </ul>
-
-            {isEditing ? (
-                <>
-                    <label>Correct Answer:</label>
-                    <input
-                        value={correctAnswer}
-                        onChange={(e) => setCorrectAnswer(e.target.value)}
-                        className="border p-1 w-full"
-                    />
-                    <textarea
-                        className="border p-1 w-full mt-2"
-                        value={solution}
-                        onChange={(e) => setSolution(e.target.value)}
-                    />
-                </>
-            ) : (
-                solution && (
-                    <div className="bg-gray-100 mt-2 p-3 rounded text-sm whitespace-pre-line">
-                        <strong>Step-by-step:</strong>
-                        <br />
-                        {solution}
-                    </div>
-                )
-            )}
-
-            {process.env.NODE_ENV !== "production" && (
-                <div className="flex gap-4 mt-2">
+        <Card>
+            <CardHeader>
+                <CardTitle className="text-base font-semibold">
+                    {index + 1}.{" "}
                     {isEditing ? (
-                        <>
-                            <button onClick={handleSave} className="bg-green-600 text-white px-3 py-1 rounded">Save</button>
-                            <button onClick={() => setIsEditing(false)} className="bg-gray-300 px-3 py-1 rounded">Cancel</button>
-                        </>
+                        <Input
+                            value={question}
+                            onChange={(e) => setQuestion(e.target.value)}
+                        />
                     ) : (
-                        <>
-                            <button onClick={() => setIsEditing(true)} className="text-blue-600 underline">Edit</button>
-                            <button onClick={handleDelete} className="text-red-600 underline">Delete</button>
-                        </>
+                        question
                     )}
-                </div>
-            )}
-        </div>
+                </CardTitle>
+            </CardHeader>
+
+            <CardContent className="space-y-2">
+                <ul className="list-none pl-2 space-y-1">
+                    {options.map((opt: string, idx: number) => (
+                        <li key={idx}>
+                            {String.fromCharCode(65 + idx)}.{" "}
+                            {isEditing ? (
+                                <Input
+                                    value={opt}
+                                    onChange={(e) => {
+                                        const newOptions = [...options];
+                                        newOptions[idx] = e.target.value;
+                                        setOptions(newOptions);
+                                    }}
+                                />
+                            ) : (
+                                <span
+                                    className={
+                                        opt === correctAnswer
+                                            ? "text-green-700 font-semibold"
+                                            : ""
+                                    }
+                                >
+                                    {opt}
+                                </span>
+                            )}
+                        </li>
+                    ))}
+                </ul>
+
+                {isEditing ? (
+                    <>
+                        <Label>Correct Answer:</Label>
+                        <Input
+                            value={correctAnswer}
+                            onChange={(e) => setCorrectAnswer(e.target.value)}
+                        />
+                        <Label className="mt-2 block">Solution:</Label>
+                        <Textarea
+                            value={solution}
+                            onChange={(e) => setSolution(e.target.value)}
+                        />
+                    </>
+                ) : (
+                    solution && (
+                        <div className="bg-muted mt-2 p-3 rounded text-sm whitespace-pre-line">
+                            <Label className=" font-bold">Step-by-step:</Label>
+                            <br />
+                            {solution}
+                        </div>
+                    )
+                )}
+
+                {process.env.NODE_ENV !== "production" && (
+                    <div className="flex gap-4 mt-3">
+                        {isEditing ? (
+                            <>
+                                <Button onClick={handleSave}>Save</Button>
+                                <Button
+                                    variant="outline"
+                                    onClick={() => setIsEditing(false)}
+                                >
+                                    Cancel
+                                </Button>
+                            </>
+                        ) : (
+                            <>
+                                <Button size="sm" onClick={() => setIsEditing(true)}>Edit</Button>
+                                <Button size="sm" variant="destructive" onClick={handleDelete}>
+                                    Delete
+                                </Button>
+                            </>
+                        )}
+                    </div>
+                )}
+            </CardContent>
+        </Card>
+
+
+
+
+
     );
 }

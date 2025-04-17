@@ -1,4 +1,3 @@
-//@ts-nocheck
 "use client";
 
 import { upload_mcqs } from "../actions/upload_mcqs";

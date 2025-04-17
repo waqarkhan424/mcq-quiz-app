@@ -7,8 +7,8 @@ export default function Home() {
 
   return (
     <div className="p-6 space-y-10">
-      <McqsUploader />
       <CategoryLinks />
+      <McqsUploader />
     </div>
   );
 }

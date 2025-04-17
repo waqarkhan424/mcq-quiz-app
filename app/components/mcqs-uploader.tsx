@@ -36,14 +36,13 @@ export default function McqsUploader() {
 
             },
         ];
-        await upload_mcqs(mcqs);
 
+        await upload_mcqs(mcqs);
         setLoading(false);
     };
 
     return (
         <Button
-            variant="secondary"
             onClick={handleUpload}
             disabled={loading}
         >

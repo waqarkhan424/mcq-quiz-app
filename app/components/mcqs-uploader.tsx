@@ -2,6 +2,7 @@
 "use client";
 
 import { upload_mcqs } from "../actions/upload_mcqs";
+import { Button } from "@/components/ui/button";
 import { useState } from "react";
 
 export default function McqsUploader() {
@@ -41,12 +42,12 @@ export default function McqsUploader() {
     };
 
     return (
-        <button
+        <Button
+            variant="secondary"
             onClick={handleUpload}
             disabled={loading}
-            className="bg-blue-600 text-white px-4 py-2 rounded"
         >
             {loading ? "Uploading..." : "Upload MCQs"}
-        </button>
+        </Button>
     );
 }

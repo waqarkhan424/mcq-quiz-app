@@ -21,14 +21,14 @@ import { Label } from "@/components/ui/label";
 export default function EditDeleteMcqsList({ questions }: { questions: any[] }) {
     return (
         <>
-            {questions.map((q, index) => (
-                <EditDeleteMCQ key={q.id} q={q} index={index} />
+            {questions.map((q) => (
+                <EditDeleteMCQ key={q.id} q={q} />
             ))}
         </>
     );
 }
 
-function EditDeleteMCQ({ q, index }: any) {
+function EditDeleteMCQ({ q }: any) {
     const [isEditing, setIsEditing] = useState(false);
     const [question, setQuestion] = useState(q.question);
     const [options, setOptions] = useState(q.options);
@@ -57,8 +57,8 @@ function EditDeleteMCQ({ q, index }: any) {
 
         <Card>
             <CardHeader>
-                <CardTitle className="text-base font-semibold">
-                    {index + 1}.{" "}
+                <CardTitle className="text-lg sm:text-xl font-semibold leading-snug">
+
                     {isEditing ? (
                         <Input
                             value={question}
@@ -70,8 +70,11 @@ function EditDeleteMCQ({ q, index }: any) {
                 </CardTitle>
             </CardHeader>
 
-            <CardContent className="space-y-2">
-                <ul className="list-none pl-2 space-y-1">
+
+
+            <CardContent className="space-y-1.5">
+                <ul className="list-none pl-2 space-y-0.5">
+
                     {options.map((opt: string, idx: number) => (
                         <li key={idx}>
                             {String.fromCharCode(65 + idx)}.{" "}
@@ -101,7 +104,7 @@ function EditDeleteMCQ({ q, index }: any) {
 
                 {isEditing ? (
                     <>
-                        <Label>Correct Answer:</Label>
+                        <Label className="mt-2 block">Correct Answer:</Label>
                         <Input
                             value={correctAnswer}
                             onChange={(e) => setCorrectAnswer(e.target.value)}
@@ -114,9 +117,10 @@ function EditDeleteMCQ({ q, index }: any) {
                     </>
                 ) : (
                     solution && (
-                        <div className="bg-muted mt-2 p-3 rounded text-sm whitespace-pre-line">
-                            <Label className=" font-bold">Step-by-step:</Label>
-                            <br />
+
+                        <div className="bg-muted mt-4 p-4 rounded text-sm whitespace-pre-line leading-relaxed">
+                            <span className="font-bold block mb-2">Step-by-step:</span>
+
                             {solution}
                         </div>
                     )
@@ -126,8 +130,9 @@ function EditDeleteMCQ({ q, index }: any) {
                     <div className="flex gap-4 mt-3">
                         {isEditing ? (
                             <>
-                                <Button onClick={handleSave}>Save</Button>
+                                <Button size="sm" onClick={handleSave}>Save</Button>
                                 <Button
+                                    size="sm"
                                     variant="outline"
                                     onClick={() => setIsEditing(false)}
                                 >
@@ -136,10 +141,10 @@ function EditDeleteMCQ({ q, index }: any) {
                             </>
                         ) : (
                             <>
-                                <Button size="sm" onClick={() => setIsEditing(true)}>Edit</Button>
+                                {/* <Button size="sm" onClick={() => setIsEditing(true)}>Edit</Button>
                                 <Button size="sm" variant="destructive" onClick={handleDelete}>
                                     Delete
-                                </Button>
+                                </Button> */}
                             </>
                         )}
                     </div>

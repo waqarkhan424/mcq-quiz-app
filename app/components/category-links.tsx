@@ -21,23 +21,46 @@ import {
 
 
 
+// const categories = [
+//     { key: "percentage", label: "Percentage", icon: Percent, color: "text-rose-600" },
+//     { key: "geometry", label: "Geometry", icon: Ruler, color: "text-indigo-600" },
+//     { key: "discount", label: "Discount", icon: Tag, color: "text-yellow-600" },
+//     { key: "time-distance", label: "Time Distance", icon: Clock, color: "text-cyan-600" },
+//     { key: "partnership", label: "Partnership", icon: Users, color: "text-emerald-600" },
+//     { key: "simple-interest", label: "Simple Interest", icon: Coins, color: "text-orange-600" },
+//     { key: "compound-interest", label: "Compound Interest", icon: Banknote, color: "text-pink-600" },
+//     { key: "area", label: "Area", icon: AreaChart, color: "text-teal-600" },
+//     { key: "quadratic", label: "Quadratic", icon: Sigma, color: "text-purple-600" },
+//     { key: "arithmetic", label: "Arithmetic", icon: Calculator, color: "text-sky-600" },
+//     { key: "mensuration", label: "Mensuration", icon: Ruler, color: "text-lime-600" },
+//     { key: "ratio-proportion", label: "Ratio Proportion", icon: Divide, color: "text-red-600" },
+// ];
+
+
+
+
 const categories = [
     { key: "percentage", label: "Percentage", icon: Percent, color: "text-rose-600" },
     { key: "geometry", label: "Geometry", icon: Ruler, color: "text-indigo-600" },
     { key: "discount", label: "Discount", icon: Tag, color: "text-yellow-600" },
-    { key: "time-distance", label: "Time Distance", icon: Clock, color: "text-cyan-600" },
+    { key: "time-distance", label: "Time and Distance", icon: Clock, color: "text-cyan-600" },
+    { key: "time-work", label: "Time and Work", icon: Clock, color: "text-blue-600" },
     { key: "partnership", label: "Partnership", icon: Users, color: "text-emerald-600" },
     { key: "simple-interest", label: "Simple Interest", icon: Coins, color: "text-orange-600" },
     { key: "compound-interest", label: "Compound Interest", icon: Banknote, color: "text-pink-600" },
     { key: "area", label: "Area", icon: AreaChart, color: "text-teal-600" },
-    { key: "quadratic", label: "Quadratic", icon: Sigma, color: "text-purple-600" },
-    { key: "arithmetic", label: "Arithmetic", icon: Calculator, color: "text-sky-600" },
+    { key: "area-related", label: "Area Related", icon: AreaChart, color: "text-yellow-700" },
+    { key: "quadratic", label: "Quadratic Equation", icon: Sigma, color: "text-purple-600" },
+    { key: "races-games", label: "Races and Games", icon: Calculator, color: "text-pink-600" },
+    { key: "stock-share", label: "Stock and Share", icon: Banknote, color: "text-green-700" },
     { key: "mensuration", label: "Mensuration", icon: Ruler, color: "text-lime-600" },
-    { key: "ratio-proportion", label: "Ratio Proportion", icon: Divide, color: "text-red-600" },
+    { key: "ratio-proportion", label: "Ratio and Proportion", icon: Divide, color: "text-red-600" },
+    { key: "lcm-hcf", label: "LCM and HCF", icon: Divide, color: "text-indigo-600" },
+    { key: "arithmetic", label: "Arithmetic", icon: Calculator, color: "text-sky-600" },
+    { key: "basic-arithmetic", label: "Basic Arithmetic", icon: Calculator, color: "text-sky-700" },
+    { key: "accounting", label: "Accounting", icon: Coins, color: "text-orange-700" },
+    { key: "basic-maths", label: "Basic Maths", icon: Sigma, color: "text-red-700" },
 ];
-
-
-
 
 
 
@@ -48,7 +71,11 @@ export default function CategoryLinks() {
 
     return (
         <div className="max-w-5xl mx-auto px-4 py-8">
-            <Typography variant="h2" className="mb-6 text-center" >Maths MCQs</Typography>
+
+            <Typography variant="h2" className="mb-6 text-center">
+                Choose a Math Topic to Begin
+            </Typography>
+
 
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5">
                 {categories.map((cat) => {

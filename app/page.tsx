@@ -7,12 +7,6 @@ export default function Home() {
 
 
   return (
-    // <div className="p-6 space-y-10">
-    //   <CategoryLinks />
-    //   <McqsUploader />
-    // </div>
-
-
 
     <div className="p-6 space-y-10 max-w-4xl mx-auto">
       <div className="text-center space-y-2">
@@ -25,10 +19,10 @@ export default function Home() {
       </div>
 
       <CategoryLinks />
+
+      {/* <McqsUploader /> */}
+
     </div>
-
-
-
 
 
   );

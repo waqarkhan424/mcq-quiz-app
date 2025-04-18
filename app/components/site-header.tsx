@@ -9,9 +9,14 @@ export default function SiteHeader() {
         <header className="border-b bg-background shadow-sm">
             <div className="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
                 <Link href="/" className="flex items-center gap-2">
-                    <Typography variant="h2" className="text-xl font-bold tracking-tight">
-                        xplaind
+
+                    <Typography
+                        variant="h2"
+                        className="text-2xl font-extrabold tracking-tight text-primary font-serif"
+                    >
+                        one<span className="text-muted-foreground">paper</span>
                     </Typography>
+
                 </Link>
                 <nav>
                     <Link

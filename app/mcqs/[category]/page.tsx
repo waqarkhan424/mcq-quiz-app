@@ -17,11 +17,11 @@ import Typography from "@/components/ui/typography";
 
 
 interface Props {
-    params: Promise<{ category: string }>; // this is a Promise
+    params: Promise<{ category: string }>;
 }
 
 export default async function McqsByCategory(props: Props) {
-    const { category } = await props.params; // ✅ await it here
+    const { category } = await props.params;
 
 
 

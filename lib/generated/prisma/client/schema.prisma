@@ -12,6 +12,7 @@ model Question {
   id            String   @id @default(auto()) @map("_id") @db.ObjectId
   question      String
   options       String[]
+  
   correctAnswer String
   solution      String?
   category      String?

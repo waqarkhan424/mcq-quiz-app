@@ -20,6 +20,7 @@ import {
 
 
 
+
 const categories = [
     { key: "percentage", label: "Percentage", icon: Percent, color: "text-rose-600" },
     { key: "geometry", label: "Geometry", icon: Ruler, color: "text-indigo-600" },

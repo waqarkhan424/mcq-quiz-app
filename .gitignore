@@ -43,3 +43,5 @@ next-env.d.ts
 # prisma generated client (custom output path)
 lib/generated/
 
+# Exclude Windows AppData directory from scanning
+**/Application Data/**

@@ -5,7 +5,6 @@ import Typography from "@/components/ui/typography";
 
 export default function Home() {
 
-
   return (
 
     <div className="p-6 space-y-10 max-w-4xl mx-auto">

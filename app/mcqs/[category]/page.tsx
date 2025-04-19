@@ -10,7 +10,9 @@ interface Props {
 }
 
 export default async function McqsByCategory({ params }: Props) {
-    const { category } = await params;
+    console.log("params::::::::::::::", params);
+
+    const { category } = params;
 
     const questions = await prisma.question.findMany({
         where: { category },

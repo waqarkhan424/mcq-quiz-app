@@ -5,14 +5,25 @@ import EditDeleteMcqsList from "@/app/components/edit-delete-mcqs-list";
 import Typography from "@/components/ui/typography";
 
 
+// interface Props {
+//     params: { category: string };
+// }
+
+// export default async function McqsByCategory({ params }: Props) {
+//     console.log("params::::::::::::::", params);
+
+//     const { category } = params;
+
+
+
 interface Props {
-    params: { category: string };
+    params: Promise<{ category: string }>; // this is a Promise
 }
 
-export default async function McqsByCategory({ params }: Props) {
-    console.log("params::::::::::::::", params);
+export default async function McqsByCategory(props: Props) {
+    const { category } = await props.params; // ✅ await it here
 
-    const { category } = params;
+
 
     const questions = await prisma.question.findMany({
         where: { category },
